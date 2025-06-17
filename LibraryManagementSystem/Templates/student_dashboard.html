@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://contentful.harrypotter.com/usf1vwtuqyxm/uabNekzJQRgdB8d74jbkC/97de9bdfd94ae25cc1c29b4055d0dd26/HP-F4-goblet-of-fire-harry-ron-hermione-library-golden-egg-web-landscape?q=75&fm=jpg&w=2560') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      min-height: 100vh;
+	 }
+
+
+    h1, h2 { text-align: center;color: #f5f0dc;font-family: 'Harry Potter', sans-serif; }
+    table {
+      margin: auto;
+      width: 90%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+    tr:nth-child(even) { background: rgba(245, 240, 220, 0.1); }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome {{ user[1] }} (Student ID: {{ user[0] }})</h1>
+  <form action="/library" method="POST" style="text-align:center; margin-bottom: 20px;">
+  <input type="hidden" name="student_id" value="{{ user[0] }}">
+  <button type="submit" style="padding:10px 20px;">📚 Borrow Book</button>
+</form>
+  <h2>📚 Your Borrowed Book History</h2>
+
+  {% if books %}
+  <table>
+    <tr>
+      <th>Book Title</th>
+      <th>Issue Date</th>
+      <th>Due Date</th>
+      <th>Status</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+      <td>{{ book[0] }}</td>
+      <td>{{ book[1] }}</td>
+      <td>{{ book[2] }}</td>
+      <td>
+  {% if book[3] == 1 %}
+    ✅ Returned
+  {% elif book[4] < 0 %}
+    ❌ Overdue by {{ book[4] | abs }} days
+  {% else %}
+    {{ book[4] }} days left
+  {% endif %}
+</td>
+
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p style="text-align:center;">You haven't borrowed any books yet.</p>
+  {% endif %}
+
+</body>
+</html>

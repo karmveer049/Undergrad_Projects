@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Library</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef2f3;
+      padding: 30px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .section {
+      background: white;
+      padding: 20px;
+      width: 90%;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .scroll {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: #3498db;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    button {
+      background-color: #2980b9;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1abc9c;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📚 Borrow a Book</h2>
+
+  <div class="section">
+    {% if books %}
+    <div class="scroll">
+      <table>
+        <tr>
+          <th>Book Title</th>
+          <th>Available Copies</th>
+          <th>Action</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+          <td>{{ book[0] }}</td>
+          <td>{{ book[1] }}</td>
+          <td>
+            <form method="POST" action="/borrow">
+              <input type="hidden" name="student_id" value="{{ student_id }}">
+              <input type="hidden" name="book_title" value="{{ book[0] }}">
+              <button type="submit">Borrow</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% else %}
+      <p style="text-align:center;">No books available to borrow.</p>
+    {% endif %}
+  </div>
+
+</body>
+</html>
