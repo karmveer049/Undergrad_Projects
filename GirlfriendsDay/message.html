@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Journey Book ❤️</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffe6f0, #fff0f6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #book {
+      width: 90%;
+      max-width: 800px;
+      height: 550px;
+    }
+
+    .page {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.5);
+      overflow: auto;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #4b0f28;
+    }
+
+    .page h1 {
+      text-align: center;
+      color: #d6336c;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .page img {
+      display: block;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #ffc0cb;
+    }
+
+    .back-home {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff99cc;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff66a3;
+    }
+  </style>
+</head>
+<body>
+
+<div id="book">
+  <div class="page"><h1>Our Journey ❤️</h1></div>
+
+  <div class="page">
+    You entered in my life in 2018. I still can't believe we've known each other for the past 8 years.
+    I was a very rough boy, which you hated from everyone's perspective but secretly loved me.
+    This thing makes me feel very special.
+  </div>
+
+  <div class="page">
+    The very first time you talked to me not formally was the day you scolded me for losing my chance
+    to be a public speaker and said "muh me dahi jam gya hai kya".
+
+    From that time onwards, we started talking to each other more frequently. But it still wasn't the start of anything.
+  </div>
+
+  <div class="page">
+    The very first spark started on 8th Feb 2020, the day of our farewell of class 10th.
+    The first time we clicked pics together and the same day, we exchanged numbers.
+  </div>
+
+  <div class="page">
+    <p><em>(Photo from 8th Feb 2020 💑)</em></p>
+    <img src="message.jpg" alt="First Photo Together">
+  </div>
+
+  <div class="page">
+    This was the start of everything we are now. But still, we behaved formally — informal formally.
+    I was reckless at that time but you always stuck with me and never let me go away.
+  </div>
+
+  <div class="page">
+    We discussed questions and answers, but we both knew these were just tools to talk to each other
+    without getting caught by parents. You met my mom for the first time at the exam center and touched her feet.
+  </div>
+
+  <div class="page">
+    After the exam was over, we still kept in touch. We saw various phases of life together. Highs and lows of each other.
+    We’ve been apartly together, fought like hell, but stuck together.
+  </div>
+
+  <div class="page">
+    We'll build our house together as we planned.
+
+    I love you, my dear. ❤️
+  </div>
+
+  <div class="page"><h1>Forever Yours 💕</h1></div>
+</div>
+
+<button class="back-home" onclick="window.location.href='index.html'">🏠</button>
+
+<script>
+  $('#book').turn({
+    width: 800,
+    height: 550,
+    autoCenter: true,
+    gradients: true,
+    duration: 1000
+  });
+</script>
+
+</body>
+</html>

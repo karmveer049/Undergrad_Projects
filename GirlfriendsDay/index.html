@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dragon - For Her</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe6f0, #fceeff);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.postimg.cc/RCdq99B7/11zon-resized.png') no-repeat center center;
+	  
+      background-size: cover;
+      z-index: -1;
+      opacity: 1;
+    }
+
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .button {
+      position: absolute;
+      width: 140px;
+      height: 100px;
+      background: #fff0f6;
+      border: 3px solid #ffb6c1;
+      color: #d6336c;
+      font-weight: bold;
+      font-size: 25px;
+      text-align: top;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px #ffd6e0;
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: visible;
+      }
+
+    .button span {
+      text-shadow: 0 1px 2px white;
+      padding: 10px;
+      font-size: 20px;
+      color: #a8003a;
+    }
+
+    .button:hover {
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 0 40px #ff99cc;
+    }
+
+    .button:active {
+      transform: scale(0.95) rotate(0deg);
+      box-shadow: 0 0 15px #ff6699 inset;
+    }
+
+    #btn1 { top: 12%; left: 10%; transform: rotate(-12deg); }
+    #btn2 { top: 20%; right: 10%; transform: rotate(10deg); }
+    #btn3 { top: 45%; left: 18%; transform: rotate(-8deg); }
+    #btn4 { bottom: 20%; right: 18%; transform: rotate(15deg); }
+    #btn5 { bottom: 12%; left: 35%; transform: rotate(-10deg); }
+    #btn6 { top: 38%; right: 30%; transform: rotate(8deg); }
+    #btn7 { bottom: 30%; left: 8%; transform: rotate(6deg); }
+    #btn8 { top: 10%; right: 30%; transform: rotate(-15deg); }
+    #btn9 { bottom: 5%; right: 5%; transform: rotate(12deg); }
+
+    .floating-heart {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: pink;
+      clip-path: polygon(
+        50% 15%,
+        61% 5%,
+        75% 5%,
+        85% 15%,
+        85% 30%,
+        50% 70%,
+        15% 30%,
+        15% 15%,
+        25% 5%,
+        39% 5%
+      );
+      opacity: 0.6;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); opacity: 0.8; }
+      50% { transform: translateY(-25px); opacity: 1; }
+      100% { transform: translateY(0px); opacity: 0.8; }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="container">
+    <div id="btn1" class="button" onclick="location.href='message.html'"><span>Message</span></div>
+    <div id="btn2" class="button" onclick="location.href='timeline.html'"><span>Timeline</span></div>
+    <div id="btn3" class="button" onclick="location.href='album.html'"><span>Photo Album</span></div>
+    <div id="btn4" class="button" onclick="location.href='songs.html'"><span>Playlist</span></div>
+   
+ 
+    <div id="btn8" class="button" onclick="location.href='future.html'"><span>Future Plans</span></div>
+
+  </div>
+
+  <script>
+    for (let i = 0; i < 35; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = Math.random() * 100 + 'vh';
+      heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>

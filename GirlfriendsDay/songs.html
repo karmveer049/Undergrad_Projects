@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Playlist Flipbook</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe6f0, #fff0f5);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #flipbook {
+      width: 700px;
+      height: 500px;
+    }
+
+    .page {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255, 192, 203, 0.5);
+      padding: 30px;
+      box-sizing: border-box;
+      font-size: 20px;
+      color: #6d214f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h2 {
+      color: #c44569;
+      font-size: 28px;
+      margin: 0;
+    }
+
+    a {
+      color: #6d214f;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    a:hover {
+      color: #e84393;
+      text-decoration: underline;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+</head>
+<body>
+
+<div id="flipbook">
+  <div class="page"><h2>Our Playlist 🎶</h2></div>
+
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=MiAoetOXKcY" target="_blank">Say Yes to Heaven – Lana Del Rey</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=p1LLKISvRds" target="_blank">Happiness Is a Butterfly – Lana Del Rey</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=0SVaz8VWE84" target="_blank">People You Know – Selena Gomez</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=JWeJHN5P-E8" target="_blank">Teeth – 5 Seconds of Summer</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=UpsKGvPjAgw" target="_blank">Steal My Girl – One Direction</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=2JgvVfOfoWI" target="_blank">Style (Taylor's Version) – Taylor Swift</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=MWASeaYuHZo" target="_blank">Scars to Your Beautiful – Alessia Cara</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=lY2yjAdbvdQ" target="_blank">Treat You Better – Shawn Mendes</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=Ho32Oh6b4jc" target="_blank">Perfect – One Direction</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=XYAghEq5Lfw" target="_blank">Youth – Troye Sivan</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=dT2owtxkU8k" target="_blank">There's Nothing Holdin' Me Back – Shawn Mendes</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=xXEx0DyIMks" target="_blank">Imagination – Shawn Mendes</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=igIfiqqVHtA" target="_blank">Enchanted – Taylor Swift</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=W-TE_Ys4iwM" target="_blank">Story of My Life – One Direction</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=LoY6nmmjnHM" target="_blank">IDK You Yet – Alexander 23</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=W8a4sUabCUo" target="_blank">Dandelions – Ruth B.</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=24u3NoPvgMw" target="_blank">Heather – Conan Gray</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=Qzc_aX8c8g4" target="_blank">Dancing with Your Ghost – Sasha Alex Sloan</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=1jO2wSpAoxA" target="_blank">If the World Was Ending – JP Saxe &amp; Julia Michaels</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=bPYefBD1Rzs" target="_blank">What a Time – Julia Michaels ft. Niall Horan</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=rtOvBOTyX00" target="_blank">A Thousand Years – Christina Perri</a>
+  </div>
+  <div class="page">
+    <a href="http://www.youtube.com/watch?v=8ofCZObsnOo" target="_blank">Hold On – Chord Overstreet</a>
+  </div>
+</div>
+
+<script>
+  $('#flipbook').turn({
+    width: 700,
+    height: 500,
+    autoCenter: true,
+    gradients: true
+  });
+</script>
+
+</body>
+</html>

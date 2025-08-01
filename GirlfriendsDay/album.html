@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo Album - Dragon</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('albumBackground.jpg') no-repeat center center fixed;
+      background-size: cover;
+      background-color: rgba(255, 255, 255, 0.2);
+      background-blend-mode: lighten;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      color: #d81b60;
+      font-size: 36px;
+      margin: 40px 0;
+    }
+
+   .back-home {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff99cc;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff66a3;
+    }
+
+
+    .album {
+      width: 100vw;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      background: rgba(255, 240, 246, 0.85);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 90vw;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    .page img {
+      width: 30%;
+      max-width: 200px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .page img:hover {
+      transform: scale(1.1);
+    }
+
+    .zoomed {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 90vw;
+      max-height: 90vh;
+      z-index: 9999;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 9998;
+    }
+
+    .controls {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .controls button {
+      background: #f06292;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="home-button">Home</a>
+  <h1>Our Photo Album</h1>
+  <div class="album" id="album"></div>
+  <div class="controls">
+    <button onclick="prevPage()">Previous</button>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <script>
+    const totalImages = 51;
+    const imagesPerPage = 6;
+    const totalPages = Math.ceil(totalImages / imagesPerPage);
+    const album = document.getElementById('album');
+    let currentPage = 0;
+
+    for (let p = 0; p < totalPages; p++) {
+      const page = document.createElement('div');
+      page.className = 'page';
+      if (p === 0) page.classList.add('active');
+
+      for (let i = 0; i < imagesPerPage; i++) {
+        const imgIndex = p * imagesPerPage + i + 1;
+        if (imgIndex > totalImages) break;
+        const img = document.createElement('img');
+        img.src = `${imgIndex}.jpg`;
+        img.alt = `Photo ${imgIndex}`;
+        img.onclick = () => zoomImage(img.src);
+        page.appendChild(img);
+      }
+      album.appendChild(page);
+    }
+
+    function showPage(index) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach((pg, i) => pg.classList.toggle('active', i === index));
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    }
+
+    function zoomImage(src) {
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay';
+      overlay.onclick = () => {
+        document.body.removeChild(overlay);
+        document.body.removeChild(zoom);
+      };
+
+      const zoom = document.createElement('img');
+      zoom.src = src;
+      zoom.className = 'zoomed';
+
+      document.body.appendChild(overlay);
+      document.body.appendChild(zoom);
+    }
+  </script>
+<button class="back-home" onclick="window.location.href='index.html'">🏠</button>
+
+</body>
+</html>
